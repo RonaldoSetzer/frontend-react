@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import { palette, displays } from '../utils/colors';
 
 const GlobalStyles = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&display=swap');
@@ -31,10 +32,23 @@ const GlobalStyles = createGlobalStyle`
   }
 
   body {
+    --background: ${displays.background};
+    --foreground: ${displays.foreground};
+    --boundary: ${displays.boundary};
+    --boundary-soft: ${displays.boundarysoft}
+    --boundary-light: ${displays.boundarylight}
+    --primary: ${palette.primary}
+    --secondary: ${palette.secondary}
+    --danger: ${palette.danger}
+    --warning: ${palette.warning}
+    --info: ${palette.info}
+  }
+  
+  body {
     line-height: 1;
     font-family:  'Baloo 2', Helvetica, Arial, sans-serif;
-    color: #ebdbb2;
-    background: #282828;
+    color: var(--foreground);
+    background: var(--background);
   }
 
   button {
