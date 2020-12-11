@@ -29,6 +29,7 @@ export const MenuItem = styled.li`
 export const Title = styled.h1`
   font-weight: 700;
   font-size: 2rem;
+  text-transform: capitalize;
 `;
 
 export const Line = styled.hr`
