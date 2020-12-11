@@ -33,13 +33,13 @@ const GlobalStyles = createGlobalStyle`
     --background: ${displays.background};
     --foreground: ${displays.foreground};
     --boundary: ${displays.boundary};
-    --boundary-soft: ${displays.boundarysoft}
-    --boundary-light: ${displays.boundarylight}
-    --primary: ${palette.primary}
-    --secondary: ${palette.secondary}
-    --danger: ${palette.danger}
-    --warning: ${palette.warning}
-    --info: ${palette.info}
+    --boundary-soft: ${displays.boundarysoft};
+    --boundary-light: ${displays.boundarylight};
+    --primary: ${palette.primary};
+    --secondary: ${palette.secondary};
+    --danger: ${palette.danger};
+    --warning: ${palette.warning};
+    --info: ${palette.info};
   }
   
   body {
