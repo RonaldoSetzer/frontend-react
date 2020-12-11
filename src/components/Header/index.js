@@ -1,16 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import React from 'react';
 
+import useRouterTitle from '../../hooks/useRouterTitle';
 import { Background, Container, Title, Menu, MenuItem, Line } from './styles';
 
 function Header() {
-  const [title, setTitle] = useState();
-  const { pathname } = useLocation();
-
-  useEffect(() => {
-    const [slug] = pathname.split('/').filter(item => item);
-    setTitle(slug);
-  }, [pathname]);
+  const { title } = useRouterTitle();
 
   return (
     <Background>
