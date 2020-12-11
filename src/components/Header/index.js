@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Background, Container, Title, Menu, MenuItem } from './styles';
+import { Background, Container, Title, Menu, MenuItem, Line } from './styles';
 
 function Header() {
   return (
@@ -13,6 +13,7 @@ function Header() {
           <MenuItem>about</MenuItem>
         </Menu>
       </Container>
+      <Line />
     </Background>
   );
 }

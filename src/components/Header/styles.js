@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { palette } from '../../utils/colors';
 
 export const Background = styled.div`
   height: 4rem;
@@ -28,4 +29,20 @@ export const MenuItem = styled.li`
 export const Title = styled.h1`
   font-weight: 700;
   font-size: 2rem;
+`;
+
+export const Line = styled.hr`
+  margin: 0 0 1rem;
+  padding: 0;
+  width: 100%;
+  height: 0.2rem;
+  border: none;
+  background: linear-gradient(
+    90deg,
+    ${palette.primary} 50%,
+    ${palette.secondary} 60%,
+    ${palette.danger} 70%,
+    ${palette.warning} 80%,
+    ${palette.info} 90%
+  );
 `;
