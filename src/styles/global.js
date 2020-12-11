@@ -51,6 +51,43 @@ const GlobalStyles = createGlobalStyle`
 
   button {
     cursor: pointer;
+    color: var(--foreground)
+    font-weight: 700;
+
+    padding: 0.5rem;
+
+    background: var(--boundarysoft);
+    border: 1px solid var(--foreground);
+    border-radius: 15px;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  hr {
+    height: 2px;
+    border: none;
+    background: var(--foreground);
+  }
+
+  input {
+    flex: 1;
+    color: var(--foreground);
+    font-weight: 700;
+
+    margin-right: 0.5rem;
+    padding: 0.5rem;
+
+    background: var(--boundarysoft);
+    border: none;
+    border-bottom: 1px solid var(--foreground);
+    border-right: 1px solid var(--foreground);
+    border-radius: 5px;
+  }
+
+  strong {
+    font-weight: 700;
   }
 
   a {
