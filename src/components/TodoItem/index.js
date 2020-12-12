@@ -1,27 +1,27 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
 
 import { Container, Button, Content } from './styles';
-import { toggleTodo, removeTodo } from '../../store/modules/todos/actions';
 
-function TodoItem({ id, title, status, color }) {
-  const dispatch = useDispatch();
-
-  function handleToggleStatus(e) {
+function TodoItem({ title, status, color, handleDelete, handleToggle }) {
+  function onToggle(e) {
     e.preventDefault();
-    dispatch(toggleTodo(id));
+    if (handleToggle) {
+      handleToggle();
+    }
   }
 
-  function handleDelete(e) {
+  function onDelete(e) {
     e.preventDefault();
-    dispatch(removeTodo(id));
+    if (handleDelete) {
+      handleDelete();
+    }
   }
 
   return (
     <Container status={status} color={color}>
-      <Button onClick={handleToggleStatus}>{status}</Button>
+      <Button onClick={onToggle}>{status}</Button>
       <Content>{title}</Content>
-      <Button onClick={handleDelete}>del</Button>
+      <Button onClick={onDelete}>del</Button>
     </Container>
   );
 }

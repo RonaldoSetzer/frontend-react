@@ -6,7 +6,11 @@ import TodoInfo from '../../components/TodoInfo';
 import TodoItem from '../../components/TodoItem';
 import { Card } from '../../components/ui';
 
-import { addTodo } from '../../store/modules/todos/actions';
+import {
+  addTodo,
+  removeTodo,
+  toggleTodo,
+} from '../../store/modules/todos/actions';
 
 function Todo() {
   const dispatch = useDispatch();
@@ -16,6 +20,14 @@ function Todo() {
     dispatch(addTodo(value));
   }
 
+  function handleRemoveTodo(id) {
+    dispatch(removeTodo(id));
+  }
+
+  function handleToggleTodo(id) {
+    dispatch(toggleTodo(id));
+  }
+
   return (
     <>
       <InputForm placeholder="ADD TO DO" handleSubmit={handleSubmit} />
@@ -23,7 +35,13 @@ function Todo() {
         <TodoInfo totalCompleted={totalCompleted} total={total} />
         <hr />
         {todos.map(({ id, title, status }) => (
-          <TodoItem key={id} id={id} title={title} status={status} />
+          <TodoItem
+            key={id}
+            title={title}
+            status={status}
+            handleToggle={() => handleToggleTodo(id)}
+            handleRemove={() => handleRemoveTodo(id)}
+          />
         ))}
       </Card>
     </>
