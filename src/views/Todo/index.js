@@ -2,7 +2,9 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import InputForm from '../../components/InputForm';
-import TodoList from '../../components/TodoList';
+import TodoInfo from '../../components/TodoInfo';
+import TodoItem from '../../components/TodoItem';
+import { Card } from '../../components/ui';
 
 import { addTodo } from '../../store/modules/todos/actions';
 
@@ -17,7 +19,13 @@ function Todo() {
   return (
     <>
       <InputForm placeholder="ADD TO DO" handleSubmit={handleSubmit} />
-      <TodoList list={todos} total={total} totalCompleted={totalCompleted} />
+      <Card>
+        <TodoInfo totalCompleted={totalCompleted} total={total} />
+        <hr />
+        {todos.map(({ id, title, status }) => (
+          <TodoItem key={id} id={id} title={title} status={status} />
+        ))}
+      </Card>
     </>
   );
 }
