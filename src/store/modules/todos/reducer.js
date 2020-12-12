@@ -43,6 +43,12 @@ function todo(state = initialState, action) {
           const status = { done: 'do', do: 'done' };
 
           draft.todos[index].status = status[draft.todos[index].status];
+          draft.totalCompleted = draft.todos.reduce((total, item) => {
+            if (item.status === 'done') {
+              total += 1;
+            }
+            return total;
+          }, 0);
         }
       });
 
