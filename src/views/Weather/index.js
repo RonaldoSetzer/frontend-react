@@ -1,10 +1,15 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 
 import InputForm from '../../components/InputForm';
 import WeatherCard from '../../components/WeatherCard';
 import { ViewContainer } from '../../components/ui';
 
 function Weather() {
+  const { today, tomorrow, afertomorrow } = useSelector(
+    state => state.forecast,
+  );
+
   function handleSubmit(value) {
     console.log(value);
   }
@@ -12,9 +17,12 @@ function Weather() {
   return (
     <ViewContainer>
       <InputForm placeholder="TYPE A CITE" handleSubmit={handleSubmit} />
-      <WeatherCard day="TODAY" temperature="38.5C" />
-      <WeatherCard day="TOMORROW" temperature="38.5C" />
-      <WeatherCard day="AFTER TOMORROW" temperature="38.5C" />
+      <WeatherCard day={today.label} temperature={today.temperature} />
+      <WeatherCard day={tomorrow.label} temperature={tomorrow.temperature} />
+      <WeatherCard
+        day={afertomorrow.label}
+        temperature={afertomorrow.temperature}
+      />
     </ViewContainer>
   );
 }
