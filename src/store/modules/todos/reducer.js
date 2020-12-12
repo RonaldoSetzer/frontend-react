@@ -22,6 +22,7 @@ function todo(state = initialState, action) {
           title: action.title,
           status: 'do',
         });
+        draft.total = draft.todos.length;
       });
 
     case '@todo/remove':
@@ -30,6 +31,7 @@ function todo(state = initialState, action) {
 
         if (index >= 0) {
           draft.todos.splice(index, 1);
+          draft.total = draft.todos.length;
         }
       });
 

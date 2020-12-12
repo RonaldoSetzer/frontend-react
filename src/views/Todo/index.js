@@ -8,7 +8,7 @@ import { addTodo } from '../../store/modules/todos/actions';
 
 function Todo() {
   const dispatch = useDispatch();
-  const { todos, totalCompleted } = useSelector(state => state.todos);
+  const { todos, total, totalCompleted } = useSelector(state => state.todos);
 
   function handleSubmit(value) {
     dispatch(addTodo(value));
@@ -17,7 +17,7 @@ function Todo() {
   return (
     <>
       <InputForm placeholder="ADD TO DO" handleSubmit={handleSubmit} />
-      <TodoList list={todos} totalCompleted={totalCompleted} />
+      <TodoList list={todos} total={total} totalCompleted={totalCompleted} />
     </>
   );
 }
