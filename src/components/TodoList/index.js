@@ -1,5 +1,6 @@
 import React from 'react';
 
+import TodoItem from '../TodoItem';
 import { Card } from '../ui';
 import { Head, Title, List } from './styles';
 
@@ -16,9 +17,7 @@ function TodoList({ list = [], totalCompleted }) {
       <List>
         {list &&
           list.map(({ id, title, status }) => (
-            <li key={id}>
-              {title}:{status}
-            </li>
+            <TodoItem key={id} id={id} title={title} status={status} />
           ))}
       </List>
     </Card>
