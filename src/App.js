@@ -1,10 +1,13 @@
 import React from 'react';
+import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import styled from 'styled-components';
 
 import GlobalStyles from './styles/global';
 import Routes from './routes';
 import Header from './components/Header';
+
+import store from './store';
 
 const Content = styled.main`
   margin: 1rem auto 0 auto;
@@ -14,7 +17,7 @@ const Content = styled.main`
 
 function App() {
   return (
-    <div>
+    <Provider store={store}>
       <GlobalStyles />
       <BrowserRouter>
         <Header />
@@ -22,7 +25,7 @@ function App() {
           <Routes />
         </Content>
       </BrowserRouter>
-    </div>
+    </Provider>
   );
 }
 

@@ -1,11 +1,11 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 
 import InputForm from '../../components/InputForm';
 import TodoList from '../../components/TodoList';
 
 function Todo() {
-  const todos = ['todo 01', 'todo 02', 'todo 03', 'todo 04', 'todo 05'];
-  const totalCompleted = 3;
+  const { todos, totalCompleted } = useSelector(state => state.todos);
 
   function handleSubmit(value) {
     console.log(value);
