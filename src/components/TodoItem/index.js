@@ -1,11 +1,15 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 
 import { Container, Button, Content } from './styles';
+import { toggleTodo } from '../../store/modules/todos/actions';
 
 function TodoItem({ id, title, status, color }) {
+  const dispatch = useDispatch();
+
   function handleToggleStatus(e) {
     e.preventDefault();
-    console.log('toggle', id);
+    dispatch(toggleTodo(id));
   }
 
   function handleDelete(e) {
