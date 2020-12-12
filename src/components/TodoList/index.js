@@ -13,7 +13,14 @@ function TodoList({ list = [], totalCompleted }) {
         </span>
       </Head>
       <hr />
-      <List>{list && list.map(value => <li key={value}>{value}</li>)}</List>
+      <List>
+        {list &&
+          list.map(({ id, title, status }) => (
+            <li key={id}>
+              {title}:{status}
+            </li>
+          ))}
+      </List>
     </Card>
   );
 }

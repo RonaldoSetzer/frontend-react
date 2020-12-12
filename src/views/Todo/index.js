@@ -1,14 +1,17 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import InputForm from '../../components/InputForm';
 import TodoList from '../../components/TodoList';
 
+import { addTodo } from '../../store/modules/todos/actions';
+
 function Todo() {
+  const dispatch = useDispatch();
   const { todos, totalCompleted } = useSelector(state => state.todos);
 
   function handleSubmit(value) {
-    console.log(value);
+    dispatch(addTodo(value));
   }
 
   return (
