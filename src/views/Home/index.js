@@ -1,7 +1,13 @@
 import React from 'react';
 
+import { ViewContainer } from '../../components/ui';
+
 function Home() {
-  return <h1>Home</h1>;
+  return (
+    <ViewContainer>
+      <h1>Home</h1>
+    </ViewContainer>
+  );
 }
 
 export default Home;

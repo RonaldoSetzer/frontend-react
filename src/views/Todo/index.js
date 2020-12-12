@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import InputForm from '../../components/InputForm';
 import TodoInfo from '../../components/TodoInfo';
 import TodoItem from '../../components/TodoItem';
-import { Card } from '../../components/ui';
+import { Card, ViewContainer } from '../../components/ui';
 
 import {
   addTodo,
@@ -29,7 +29,7 @@ function Todo() {
   }
 
   return (
-    <>
+    <ViewContainer>
       <InputForm placeholder="ADD TO DO" handleSubmit={handleSubmit} />
       <Card>
         <TodoInfo totalCompleted={totalCompleted} total={total} />
@@ -44,7 +44,7 @@ function Todo() {
           />
         ))}
       </Card>
-    </>
+    </ViewContainer>
   );
 }
 
