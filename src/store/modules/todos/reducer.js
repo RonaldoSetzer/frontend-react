@@ -24,6 +24,15 @@ function todo(state = initialState, action) {
         });
       });
 
+    case '@todo/remove':
+      return produce(state, draft => {
+        const index = draft.todos.findIndex(t => t.id === action.id);
+
+        if (index >= 0) {
+          draft.todos.splice(index, 1);
+        }
+      });
+
     case '@todo/toggle':
       return produce(state, draft => {
         const index = draft.todos.findIndex(t => t.id === action.id);
