@@ -13,6 +13,7 @@ function Header() {
         <Menu>
           <MenuItem>home</MenuItem>
           <MenuItem>todo</MenuItem>
+          <MenuItem>weather</MenuItem>
           <MenuItem>about</MenuItem>
         </Menu>
       </Container>
