@@ -4,3 +4,10 @@ export function addTodo(title) {
     title,
   };
 }
+
+export function toggleTodo(id) {
+  return {
+    type: '@todo/toggle',
+    id,
+  };
+}

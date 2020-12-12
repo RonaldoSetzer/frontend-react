@@ -24,6 +24,17 @@ function todo(state = initialState, action) {
         });
       });
 
+    case '@todo/toggle':
+      return produce(state, draft => {
+        const index = draft.todos.findIndex(t => t.id === action.id);
+
+        if (index >= 0) {
+          const status = { done: 'do', do: 'done' };
+
+          draft.todos[index].status = status[draft.todos[index].status];
+        }
+      });
+
     default:
       return state;
   }
