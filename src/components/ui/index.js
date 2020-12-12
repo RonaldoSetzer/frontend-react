@@ -9,3 +9,9 @@ export const Card = styled.div`
   border: none;
   border-radius: 5px;
 `;
+
+export const ViewContainer = styled.main`
+  margin: 1rem auto 0 auto;
+  max-width: 700px;
+  width: 100%;
+`;
