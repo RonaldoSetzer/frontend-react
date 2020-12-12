@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 
 import { Container, Button, Content } from './styles';
-import { toggleTodo } from '../../store/modules/todos/actions';
+import { toggleTodo, removeTodo } from '../../store/modules/todos/actions';
 
 function TodoItem({ id, title, status, color }) {
   const dispatch = useDispatch();
@@ -14,7 +14,7 @@ function TodoItem({ id, title, status, color }) {
 
   function handleDelete(e) {
     e.preventDefault();
-    console.log('delete', id);
+    dispatch(removeTodo(id));
   }
 
   return (
