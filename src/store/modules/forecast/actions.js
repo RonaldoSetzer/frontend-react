@@ -4,3 +4,11 @@ export function requestForecast(city) {
     city,
   };
 }
+
+export function addForecast(city, forecasts) {
+  return {
+    type: '@forecast/ADD',
+    city,
+    forecasts,
+  };
+}

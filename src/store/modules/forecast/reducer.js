@@ -1,11 +1,28 @@
+import produce from 'immer';
+import { v4 as uuidv4 } from 'uuid';
+
 const initialState = {
-  today: { label: 'TODAY', temperature: '38.7C' },
-  tomorrow: { label: 'TOMORROW', temperature: '36.7C' },
-  afertomorrow: { label: 'AFTER TOMORROW', temperature: '37.5C' },
+  cities: [],
 };
 
 function forecast(state = initialState, action) {
   switch (action.type) {
+    case '@forecast/ADD':
+      return produce(state, draft => {
+        const { city, forecasts } = action;
+        const index = draft.cities.findIndex(f => f.city === city);
+
+        if (index >= 0) {
+          draft.cities[index].forecasts = forecasts;
+        } else {
+          draft.cities.unshift({
+            id: uuidv4(),
+            city,
+            forecasts,
+          });
+        }
+      });
+
     default:
       return state;
   }

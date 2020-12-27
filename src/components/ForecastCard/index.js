@@ -8,7 +8,7 @@ function ForecastCard({ city, forecasts }) {
       <Title>{city}</Title>
       {forecasts &&
         forecasts.map(({ label, temperature }) => (
-          <Content>
+          <Content key={label}>
             <div />
             <Temperature>
               <strong>{label}</strong>

@@ -1,28 +1,32 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import InputForm from '../../components/InputForm';
-import WeatherCard from '../../components/WeatherCard';
-import { ViewContainer } from '../../components/ui';
+import ForecastCard from '../../components/ForecastCard';
+import { Card, ViewContainer } from '../../components/ui';
+
+import { requestForecast } from '../../store/modules/forecast/actions';
 
 function Weather() {
-  const { today, tomorrow, afertomorrow } = useSelector(
-    state => state.forecast,
-  );
+  const dispatch = useDispatch();
+  const { cities } = useSelector(state => state.forecast);
 
   function handleSubmit(value) {
-    console.log(value);
+    dispatch(requestForecast(value));
   }
 
   return (
     <ViewContainer>
       <InputForm placeholder="TYPE A CITE" handleSubmit={handleSubmit} />
-      <WeatherCard day={today.label} temperature={today.temperature} />
-      <WeatherCard day={tomorrow.label} temperature={tomorrow.temperature} />
-      <WeatherCard
-        day={afertomorrow.label}
-        temperature={afertomorrow.temperature}
-      />
+      <Card>
+        {cities.map(item => (
+          <ForecastCard
+            key={item.id}
+            city={item.city}
+            forecasts={item.forecasts}
+          />
+        ))}
+      </Card>
     </ViewContainer>
   );
 }
